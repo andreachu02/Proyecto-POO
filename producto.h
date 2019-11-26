@@ -4,16 +4,23 @@
 
 #include "tipo.h"
 
+
+
 class Cproducto{
   //private:
-  string tipo;
-
+  std::string tipo;
+  al prod_pos_x;
+  al prod_pos_y;
+  
   public:
-  producto();
-  producto(string nombre, int slot);
-  int slot_posicion;
-  get_posicion();
-  set_posicion();
-}
+  Cproducto(std::string nombre, al x, al y);
+  void set_px(al x);
+  void set_py(al y);
+  al get_px();
+  al get_py();
+
+
+};
 
 #endif
+
