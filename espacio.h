@@ -3,13 +3,25 @@
 #define PROYECTO_POO_E
 
 #include "tipo.h"
+#include <vector>
+#include "slot.h"
+#include "robot.h"
+
+
 
 class Calmacenamiento{
-  int largo_total;
-  int ancho_total;
+  al largo_total;
+  al ancho_total;
+
   public:
-  almacenamiento();
-  almacenamiento(int largo, int ancho);
-}
+  vector<Cslot> &slots;
+  vector<Crobot> &robots;
+  Calmacenamiento(al largo, al ancho);
+  void imprimir_almacenamiento();
+  void add_robot(Crobot &r);
+  friend class Cslot;
+};
+
+
 
 #endif 
