@@ -1,32 +1,22 @@
-#include <iostream>
 #include "producto.h"
-#include "tipo.h"
-#include "slot.h"
+#include <string>
 
-Cproducto::Cproducto(std::string nombre, al x, al y):tipo{nombre}, prod_pos_x{x}, prod_pos_y{y}{
-  //  Cslot->prods.push_back(Cproducto); (añadir producto a vector prods en slot)
-}
-
-
-void Cproducto::set_px(al x)
-  {
-    prod_pos_x = x;
-}
+Cproducto::Cproducto(tipo x, tipo y, string name):
+pos_x{x},pos_y{y},nombre{name}{
   
-void Cproducto::set_py(al y)
-  {
-    prod_pos_x = y;
 }
 
-al Cproducto::get_px()
-  {
-    return prod_pos_x;
-}
+tipo Cproducto::get_x()
+{return pos_x;}
 
-al Cproducto::get_py()
-  {
-    return prod_pos_y;
-}
+tipo Cproducto::get_y()
+{return pos_y;}
 
+string Cproducto::get_name()
+{return nombre;}
+
+void Cproducto::mueve_producto(tipo x, tipo y){
+  pos_x = x;
+  pos_y = y;}
 
 
