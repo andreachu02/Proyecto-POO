@@ -1,56 +1,32 @@
 #include "robot.h"
-#include <iostream>
-#include "slot.h"
-#include "tipo.h"
-#include "producto.h"
 
 
-Crobot::Crobot(int num, rob pos_x, rob pos_y): numero{num}, rob_x{pos_x}, rob_y{pos_y}{
 
-  condicion = false;
-
-  //añadir robot a CAlmacenamiento
-
+Crobot::Crobot(int num, tipo hx, tipo hy):
+numero{num},rob_x{hx}, rob_y{hy},home_x{hx}, home_y{hy} {
+  
 }
 
-al Crobot::get_rob_x(){
-    return rob_x;
-}
+tipo Crobot::get_x()
+{return rob_x;}
 
-al Crobot::get_rob_y()
-  {
-    return rob_y;
-}
-/*
-void Crobot::set_rob_x(int x)
-  {
-    rob_x = x;
-}
+tipo Crobot::get_y()
+{return rob_y;}
 
-void Crobot::set_rob_y(int y)
-  {
-    rob_y = y;
-}
-*/
+int Crobot::get_num()
+{return numero;}
 
-bool Crobot::get_condicion(){
-  return condicion;
-}
-
-
-void Crobot::mover_a_slot(al x, al y){
+void Crobot::mover_a_slot(tipo x, tipo y)
+{
   rob_x = x;
   rob_y = y;
-
 }
 
-void Crobot::mover_a_home(){
-  rob_x = 0;
-  rob_y = 0;
+void Crobot::regresa_home()
+{
+  rob_x = home_x;
+  rob_y = home_y;
 }
 
 
-
-
-
-
+ 
