@@ -1,26 +1,23 @@
+#ifndef prod
+#define prod
 
-#ifndef PROYECTO_POO_P
-#define PROYECTO_POO_P
-
+#include <string>
 #include "tipo.h"
 
+class Cproducto
+{
+  private:
+  tipo pos_x;
+  tipo pos_y;
+  std::string nombre;
 
-
-class Cproducto{
-  //private:
-  std::string tipo;
-  al prod_pos_x;
-  al prod_pos_y;
-  
   public:
-  Cproducto(std::string nombre, al x, al y);
-  void set_px(al x);
-  void set_py(al y);
-  al get_px();
-  al get_py();
-
+  Cproducto(tipo x, tipo y, string name);
+  tipo get_x();
+  tipo get_y();
+  void mueve_producto(tipo x, tipo y);
+  std::string get_name();
 
 };
 
 #endif
-
