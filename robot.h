@@ -3,35 +3,28 @@
 #define PROYECTO_POO_R
 
 #include "tipo.h"
-#include "slot.h"
 
 class Crobot{
-  //priv
-  al rob_x;
-  al rob_y;
   int numero;
-  bool condicion; 
+  tipo rob_x;
+  tipo rob_y;
+  tipo home_x;
+  tipo home_y;
+
   public:
-  //atributos
-  Crobot(int num, rob pos_x, rob pos_y);
-  //métodos
-  al get_rob_x();
-  al get_rob_y();
+  Crobot(int num, tipo hx, tipo hy);
+  tipo get_x();
+  tipo get_y();
+  int get_num();
+  void mover_a_slot(tipo x, tipo y);
+  void regresa_home();
 
-  /* creo q no necesitamos estas funciones porq podemos usar mover_a_slot(x,y)
-
-  void set_rob_x(int x);
-  void set_rob_y(int y);
-  */
-
-  bool get_condicion();
-  
-  void mover_a_slot(al x, al y);
-  void mover_a_home();
-  
-  friend class Cslot;
 
 };
 
 
-#endif 
+
+
+
+
+#endif
