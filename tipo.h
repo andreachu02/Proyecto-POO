@@ -1,8 +1,12 @@
 #ifndef POO_PROYECTO_TIPO
 #define POO_PROYECTO_TIPO
 
-using num= int;
+#include <string>
 
-using rob = int;
+using  tipo = int;
+
+
+using namespace std;
+
 
 #endif
