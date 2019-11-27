@@ -1,48 +1,54 @@
-
-#include <iostream>
-#include <vector>
 #include "espacio.h"
-#include "slot.h"
-#include "robot.h"
 
-using namespace std;
-
-Calmacenamiento::Calmacenamiento(al largo, al ancho): largo_total{largo}, ancho_total{ancho} {
- 
-    for (int i = 1; i <= ancho_total; i++) {
-        for(int j=1; j<= largo_total; j++){
-            Cslot s(i, j);
+Calmacenamiento::Calmacenamiento(tipo largo, tipo ancho): largo_total{largo}, ancho_total{ancho} {
+  
+    for (int i = 1; i <= largo_total; i++) {
+        for(int j=1; j<= ancho_total; j++){
+            Cslot s(j, i);
             slots.push_back(s);
         }
     }
 
-    /*
-    Cslot* s = new s(x, y);
-    slots.push_back(*s);
-    delete s;
-    */
-
 }
 
 void Calmacenamiento::imprimir_almacenamiento() {
-    for(int i=0; i<ancho_total; i++){
-        for(int j=0; j<largo_total; j++){
-          for(int k=0;k<robots.size();k++){
-            if(robots[k].get_rob_x() == i && robots[k].get_rob_y() == j){
-              cout<<" O ";
-            }
-            else cout<<" . "; 
-          }
+  bool a = false;
+  if(robots.size()>0){
+    for(int i=1; i<=largo_total; i++){
+        for(int j=1; j<=ancho_total; j++){
+          
+            for(int k=0;k<robots.size();k++){
+              if(robots[k]->get_x() == j && robots[k]->get_y() == i){
+                a = true;
+                cout<<" O ";
+              }
+              /*else if(){
+
+              }*/ 
+               }
+              if(a == false){
+                cout<<" . ";
+              }
+              a = false;
+          
+
+          
+        
         }
         cout<<endl;
     }
+  }
+
 }
 
-//
 
-void Calmacenamiento::add_robot(Crobot &r){
+
+void Calmacenamiento::add_robot(Crobot* r){
   robots.push_back(r);
 }
+
+
+
 
 
 
