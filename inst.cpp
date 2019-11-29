@@ -61,7 +61,7 @@ void mueve_producto_a_slot(Crobot* rob, Cproducto* p, tipo x, tipo y, Calmacenam
     cout<< "Robot N"<<rob->get_num()<< " se encuentra en ("<<x<<";"<<y<<")"<<endl;
 
     cout<<endl;
-    cout<<"---operacion terminada---"<<endl;
+    cout<<"---Operacion terminada---"<<endl;
     cout<<endl;
   }
   else{
@@ -81,6 +81,8 @@ void saca_producto(Crobot* rob, Cproducto* p, Calmacenamiento alm){
 
     tipo x = p->get_x();
     tipo y = p->get_y();
+
+    if(x != 0 && y!= 0){
 
     rob->mover_a_slot(x, y);
     cout<<"El producto se encuentra en ("<<x<<";"<<y<<")"<<endl;
@@ -111,6 +113,15 @@ void saca_producto(Crobot* rob, Cproducto* p, Calmacenamiento alm){
   
   
     cout<<"--Operacion terminada---"<<endl;
+    }
+    else{
+      
+      cout<<endl;
+      cout<<"Este producto ya no se encuentra en el almacen"<<endl;
+      cout<<endl;
+    }
+  
 
   
 }
+
