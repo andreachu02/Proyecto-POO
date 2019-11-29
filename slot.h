@@ -23,6 +23,7 @@ class Cslot{
   Cproducto* get_ptr_producto();
   void agrega_producto(Cproducto* p);
   void saca_producto();
+  bool get_v();
 
 
 };
