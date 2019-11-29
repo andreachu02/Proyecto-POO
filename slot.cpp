@@ -1,4 +1,3 @@
-
 #include "slot.h"
 
 
@@ -24,6 +23,7 @@ void Cslot::agrega_producto(Cproducto* p){
 }
 
 void Cslot::saca_producto(){
+  vacio_producto = true;
   p_en_slot = nullptr;
 }
 
@@ -38,4 +38,9 @@ string Cslot::get_producto(){
 Cproducto* Cslot::get_ptr_producto()
 {
   return p_en_slot;
+}
+
+bool Cslot::get_v(){
+  
+  return vacio_producto;
 }
