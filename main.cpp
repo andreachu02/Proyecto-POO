@@ -7,7 +7,8 @@
 #include "producto.h"
 #include "inst.h"
 
-v
+
+
 
 int main() {
 
@@ -39,61 +40,77 @@ int main() {
   //impresion de almacen inicial
   a.imprimir_almacenamiento();
   cout<<"---------------------------------------"<<endl;
+  cout<<endl;
 
-  
-
-  //creacion de productos
+  //IMPRESION DEL MENU
   int opcion;
-  cout<<"Que desea hacer:"<<endl;
+  cout<<endl;
+  cout<<"---MENU---"<<endl;
+  cout<<endl;
   cout<<"1. Agregar producto"<<endl;
   cout<<"2. Sacar producto"<<endl;
-  cout<<"3. Salir del programa."<<endl;
-  cin>> opcion;
+  cout<<"3. Regresar robots a home"<<endl;
+  cout<<"4. Salir del programa."<<endl;
   
-  while(opcion != 3){ 
+  cin>> opcion;
+
+  //MENU
+  while(opcion != 4){ 
     if(opcion == 1){
       tipo p_x;
       tipo p_y;
       string p_name;
       
+      //creacion del producto
       cout<<"Nombre del producto: ";
       cin>>p_name;
-      //---
-      Cproducto p1(0, 0, p_name);
-      Cproducto* pp1 = &p1;
-
-      productos.push_back(pp1);
-
-      cout<<"ingrese destino: ";
+      Cproducto* p = new Cproducto(0, 0, p_name);
+      productos.push_back(p);
+      //--------------------------------------------------
+      //Destino y robot que lo lleva
+      cout<<"Ingrese destino: ";
       cin>>p_x>>p_y;
-
       cout<<"Seleccione Robot (1, 2 o 3):"<<endl;
-
       int n_robot;
       cin>>n_robot;
 
+      Cproducto* pp = productos[productos.size()-1];
+
       if(n_robot == 1){
-        mueve_producto_a_slot(pR1, pp1, p_x, p_y, a);
+        mueve_producto_a_slot(pR1, pp, p_x, p_y, a);
       }
       else if(n_robot == 2){
-        mueve_producto_a_slot(pR2, pp1, p_x, p_y, a);
+        mueve_producto_a_slot(pR2, pp, p_x, p_y, a);
       }
       else{
-        mueve_producto_a_slot(pR3, pp1, p_x, p_y, a);
+        mueve_producto_a_slot(pR3, pp, p_x, p_y, a);
       }
       
+      cout<<endl;
+      cout<<"---MENU---"<<endl;
+      cout<<endl;
+      cout<<"1. Agregar producto"<<endl;
+      cout<<"2. Sacar producto"<<endl;
+      cout<<"3. Regresar robots a home"<<endl;
+      cout<<"4. Salir del programa."<<endl;
+
       cout<<endl;
       cout<<"Ingrese nueva opcion: ";
       cin>>opcion;
     }
 
+    //SACAR LOS PRODUCTOS
     else if(opcion == 2){
+
       cout<<"Seleccione n producto de la lista: "<<endl;
       
       int n_prod;
 
+      int n_p = 1;
+
       for(int i=0; i<productos.size(); i++){
-          cout<<productos[i]->get_name()<<endl;
+          cout<<n_p++<<". "<<productos[i]->get_name()<<endl;
+          
       }
       cout<<"Ingrese numero de producto: ";
       cin>>n_prod;
@@ -113,16 +130,58 @@ int main() {
         saca_producto(pR3, productos[n_prod], a);
       }
 
-     // Cproducto* prodptr = encontrar_producto(productos, a);
+     // Cproducto* prodptr = encontrar_producto(productos, a)
 
-    
+      cout<<endl;
+      cout<<"---MENU---"<<endl;
+      cout<<endl;
+      cout<<"1. Agregar producto"<<endl;
+      cout<<"2. Sacar producto"<<endl;
+      cout<<"3. Regresar robots a home"<<endl;
+      cout<<"4. Salir del programa."<<endl;
+
 
       cout<<endl;
       cout<<"Ingrese nueva opcion: ";
       cin>>opcion;
     }
+    //REGRESA ROBOTS A HOME
+    else if(opcion == 3){
+
+      R1.regresa_home();
+      R2.regresa_home();
+      R3.regresa_home();
+
+      cout<<endl;
+      a.imprimir_almacenamiento();
+
+      cout<<endl;
+      cout<<"---MENU---"<<endl;
+      cout<<endl;
+      cout<<"1. Agregar producto"<<endl;
+      cout<<"2. Sacar producto"<<endl;
+      cout<<"3. Regresar robots a home"<<endl;
+      cout<<"4. Salir del programa."<<endl;
+
+      cout<<endl;
+      cout<<"Ingrese nueva opcion: ";
+      cin>>opcion;
+    }
+    else if(opcion == 4){
+      cout<<endl;
+      cout<<"-------------programa terminado--------------"<<endl;
+      return 0;
+    }
     else{
-      cout<<"error"<<endl;
+      cout<<"Error. Elija una opcion del menu:"<<endl;
+
+      cout<<endl;
+      cout<<"---MENU---"<<endl;
+      cout<<endl;
+      cout<<"1. Agregar producto"<<endl;
+      cout<<"2. Sacar producto"<<endl;
+      cout<<"3. Regresar robots a home"<<endl;
+      cout<<"4. Salir del programa."<<endl;
 
       cout<<endl;
       cout<<"Ingrese nueva opcion: ";
@@ -130,23 +189,7 @@ int main() {
     }
 
   }
-  cout<<"-------------programa terminado--------------"<<endl;
   
-  
-  
-  //Cproducto p1(5, 6, "Toku");
-  //Cproducto* pp1 = &p1; 
-
-  //Cproducto p2(5, 5, "k");
-  //Cproducto* pp2 = &p2;
-  //a.imprimir_almacenamiento();
-  //cout<<endl;
-  
-  
-  
-  //mueve_producto_a_slot(pR1, pp1, 4, 5, a);
-  
-  //saca_producto(pR1, pp1, a);
   
 
 
