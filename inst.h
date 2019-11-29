@@ -17,6 +17,6 @@ Crobot* get_este_robot(tipo x, tipo y, Calmacenamiento alm);
 
 void saca_producto(Crobot* rob, Cproducto* p, Calmacenamiento alm);
 
-Cproducto* encontrar_producto(string prod, Calmacenamiento alm);
+//Cproducto* encontrar_producto(string prod, Calmacenamiento alm);
 
 #endif
